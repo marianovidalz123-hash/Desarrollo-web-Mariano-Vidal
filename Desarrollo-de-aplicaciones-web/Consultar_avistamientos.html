@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Avistamientos</title>
+    
+</head>
+<body>
+    <header>
+        <h1>Registro de Avistamientos de Aves</h1>
+        <p>Unión de Ornitólogos de Chile</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Registro_voluntarios.html">Registro de voluntarios</a></li>
+            <li><a href="Registro_avistamientos.html">Registro de avistamientos</a></li>
+            <li><a href="Consultar_avistamientos.html">Consultar avistamientos</a></li>
+            <li><a href="Indicadores_metricas.html">Indicadores y métricas</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Consultar Avistamientos</h2>
+        <p>Filtre y ordene los avistamientos registrados por la comunidad de voluntarios.</p>
+
+        <section id="controles">
+            <label for="filtro-tipo">Filtrar por tipo de ave</label>
+            <select id="filtro-tipo">
+                <option value="">Todos</option>
+                <option value="Rapaz">Rapaz</option>
+                <option value="Acuática">Acuática</option>
+                <option value="Paseriforme">Paseriforme (ave canora)</option>
+                <option value="Zancuda">Zancuda</option>
+                <option value="Marina">Marina</option>
+                <option value="Otra">Otra</option>
+            </select>
+
+            <label for="orden-campo">Ordenar por</label>
+            <select id="orden-campo">
+                <option value="fecha">Fecha de avistamiento</option>
+                <option value="lugar">Lugar</option>
+                <option value="nombreAve">Nombre del ave</option>
+            </select>
+
+            <label for="orden-direccion">Dirección</label>
+            <select id="orden-direccion">
+                <option value="asc">Ascendente</option>
+                <option value="desc">Descendente</option>
+            </select>
+        </section>
+
+        <table id="tabla-avistamientos">
+            <thead>
+                <tr>
+                    <th>Ave</th>
+                    <th>Tipo</th>
+                    <th>Lugar</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpo-tabla">
+                <!--Filas generadas por JavaScript>-->
+            </tbody>
+        </table>
+
+        <p id="sin-resultados" class="oculto">No se encontraron avistamientos con ese filtro.</p>
+
+        <nav aria-label="Paginación de resultados">
+            <button id="btn-anterior" type="button">Anterior</button>
+            <span id="info-pagina"></span>
+            <button id="btn-siguiente" type="button">Siguiente</button>
+        </nav>
+    </main>
+
+    <script src="js/Consultar_avistamientos.js"></script>
+</body>
+</html>

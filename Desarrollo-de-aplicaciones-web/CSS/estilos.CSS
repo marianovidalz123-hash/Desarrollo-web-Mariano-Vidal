@@ -1,0 +1,32 @@
+/* Gráficos de barras (Indicadores y Métricas) */
+.grafico-barras {
+    margin: 1rem 0 2rem 0;
+}
+
+.fila-grafico {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.etiqueta-grafico {
+    width: 140px;
+    font-size: 0.9rem;
+}
+
+.barra-contenedor {
+    flex: 1;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.barra {
+    background-color: #3d6b41;
+    color: white;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    box-sizing: border-box;
+    min-width: 2rem;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indicadores y Métricas</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Registro de Avistamientos de Aves</h1>
+        <p>Unión de Ornitólogos de Chile</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Registro_voluntarios.html">Registro de voluntarios</a></li>
+            <li><a href="Registro_avistamientos.html">Registro de avistamientos</a></li>
+            <li><a href="Consultar_avistamientos.html">Consultar avistamientos</a></li>
+            <li><a href="Indicadores_metricas.html">Indicadores y métricas</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Indicadores y Métricas</h2>
+        <p>Resumen estadístico de voluntarios y avistamientos registrados en el sistema.</p>
+
+        <section>
+            <h3>Voluntarios registrados</h3>
+            <p>Total: <strong id="total-voluntarios"></strong></p>
+
+            <p>Distribución por región:</p>
+            <div id="grafico-voluntarios" class="grafico-barras"></div>
+        </section>
+
+        <section>
+            <h3>Avistamientos registrados</h3>
+            <p>Total: <strong id="total-avistamientos"></strong></p>
+
+            <p>Distribución por tipo de ave:</p>
+            <div id="grafico-avistamientos" class="grafico-barras"></div>
+        </section>
+    </main>
+
+    <script src="js/Indicadores_metricas.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Voluntario/a</title>
+</head>
+<body>
+    <header>
+        <h1>Registro de Avistamientos de Aves</h1>
+        <p>Unión de Ornitólogos de Chile</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Registro_voluntarios.html">Registro de voluntarios</a></li>
+            <li><a href="Registro_avistamientos.html">Registro de avistamientos</a></li>
+            <li><a href="Consultar_avistamientos.html">Consultar avistamientos</a></li>
+            <li><a href="Indicadores_metricas.html">Indicadores y métricas</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Registro de Voluntario</h2>
+        <p>Complete el siguiente formulario para registrarse como voluntari@.</p>
+
+        <form id="form-voluntario" novalidate>
+            <fieldset>
+                <legend>Datos personales</legend>
+
+                <label for="nombre">Nombre (*)</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <span class="error" id="error-nombre"></span>
+
+                <br> 
+
+                <label for="apellido">Apellido (*)</label>
+                <input type="text" id="apellido" name="apellido" required>
+                <span class="error" id="error-apellido"></span>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos de contacto</legend>
+
+                <label for="email">Correo electrónico (*)</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error" id="error-email"></span>
+
+                <br>
+
+                <label for="celular">Celular (*)</label>
+                <input type="tel" id="celular" name="celular" placeholder="+56912345678" required>
+                <span class="error" id="error-celular"></span>
+            </fieldset>
+
+            <fieldset>
+                <legend>Dirección postal</legend>
+
+                <label for="Direccion">Dirección</label>
+                <input type="text" id="direccion" name="direccion">
+
+                <br>
+
+                <label for="region">Región (*)</label>
+                <select id="region" name="region" required>
+                    <option value="">-- Seleccione una región --</option>
+                    <option value="Arica y Parinacota">Arica y Parinacota</option>
+                    <option value="Tarapacá">Tarapacá</option>
+                    <option value="Antofagasta">Antofagasta</option>
+                    <option value="Atacama">Atacama</option>
+                    <option value="Coquimbo">Coquimbo</option>
+                    <option value="Valparaíso">Valparaíso</option>
+                    <option value="Metropolitana">Metropolitana de Santiago</option>
+                    <option value="O'Higgins">Libertador General Bernardo O'Higgins</option>
+                    <option value="Maule">Maule</option>
+                    <option value="Ñuble">Ñuble</option>
+                    <option value="Biobío">Biobío</option>
+                    <option value="Araucanía">La Araucanía</option>
+                    <option value="Los Ríos">Los Ríos</option>
+                    <option value="Los Lagos">Los Lagos</option>
+                    <option value="Aysén">Aysén</option>
+                    <option value="Magallanes">Magallanes y de la Antártica Chilena</option>
+                </select>
+                <span class="error" id="error-region"></span>
+
+                <br>
+
+                <label for="comuna">Comuna (*)</label>
+                <input type="text" id="comuna" name="comuna" required>
+                <span class="error" id="error-comuna"></span>
+            </fieldset>
+
+            <button type="submit">Registrarme</button>
+        </form>
+
+        <p id="mensaje-exito" class="oculto">¡Registro exitoso!</p>
+    </main>
+
+    <script src="js/Registro_voluntarios.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Avistamiento</title>
+</head>
+<body>
+    <header>
+        <h1>Registro de Avistamientos de Aves</h1>
+        <p>Unión de Ornitólogos de Chile</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Registro_voluntarios.html">Registro de voluntarios</a></li>
+            <li><a href="Registro_avistamientos.html">Registro de avistamientos</a></li>
+            <li><a href="Consultar_avistamientos.html">Consultar avistamientos</a></li>
+            <li><a href="Indicadores_metricas.html">Indicadores y métricas</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Informar un Avistamiento</h2>
+        <p>Complete el siguiente formulario para reportar un avistamiento de ave. </p>
+
+        <form id="form-avistamiento" novalidate>
+            <fieldset>
+                <legend>Identificación del voluntario</legend>
+
+                <label for="email-voluntario">Correo con el que se registró (*)</label>
+                <input type="email" id="email-voluntario" name="email-voluntario" required>
+                <span class="error" id="error-email-voluntario"></span>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos del ave avistada</legend>
+
+                <label for="tipo-ave">Tipo de ave (*)</label>
+                <select id="tipo-ave" name="tipo-ave" required>
+                    <option value="">Seleccione un tipo</option>
+                    <option value="Rapaz">Rapaz</option>
+                    <option value="Acuática">Acuática</option>
+                    <option value="Paseriforme">Paseriforme</option>
+                    <option value="Zancuda">Zancuda</option>
+                    <option value="Marina">Marina</option>
+                    <option value="Otra">Otra</option>
+                </select>
+                <span class="error" id="error-tipo-ave"></span>
+
+                <br>
+
+                <label for="nombre-ave">Nombre del ave (*)</label>
+                <input type="text" id="nombre-ave" name="nombre-ave" placeholder="Ej: Condor" required>
+                <span class="error" id="error-nombre-ave"></span>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos del avistamiento</legend>
+
+                <label for="lugar">Lugar del avistamiento (*)</label>
+                <input type="text" id="lugar" name="lugar" placeholder="Ej: Parque Nacional Torres del Paine" required>
+                <span class="error" id="error-lugar"></span>
+
+                <br>
+
+                <label for="fecha">Fecha del avistamiento (*)</label>
+                <input type="date" id="fecha" name="fecha" required>
+                <span class="error" id="error-fecha"></span>
+
+                <br>
+
+                <label for="hora">Hora del avistamiento (*)</label>
+                <input type="time" id="hora" name="hora" required>
+                <span class="error" id="error-hora"></span>
+            </fieldset>
+
+            <fieldset>
+                <legend>Registro visual</legend>
+
+                <label for="archivo">Foto o video del avistamiento (*)</label>
+                <input type="file" id="archivo" name="archivo" accept="image/*,video/*" required>
+                <span class="error" id="error-archivo"></span>
+            </fieldset>
+
+            <button type="submit">Enviar avistamiento</button>
+        </form>
+
+        <p id="mensaje-exito" class="oculto">¡Avistamiento registrado con éxito! </p>
+    </main>
+
+    <script src="js/Registro_avistamientos.js"></script>
+</body>
+</html>
