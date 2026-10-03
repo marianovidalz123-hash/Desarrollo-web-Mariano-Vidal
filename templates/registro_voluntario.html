@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% from "_macros.html" import error %}
+{% block title %}Registro de Voluntario/a{% endblock %}
+{% block contenido %}
+<h2>Registro de Voluntario</h2>
+<p>Complete el siguiente formulario para registrarse como voluntari@.</p>
+
+{% if errors.general %}<p class="error" role="alert">{{ errors.general }}</p>{% endif %}
+
+<form id="form-voluntario" method="post" action="{{ url_for('registrar_voluntario') }}" novalidate>
+    <fieldset>
+        <legend>Datos personales</legend>
+
+        <label for="nombre">Nombre (*)</label>
+        <input type="text" id="nombre" name="nombre" maxlength="100" value="{{ form.get('nombre', '') }}" required>
+        {{ error(errors, 'nombre') }}
+
+        <br>
+
+        <label for="apellido">Apellido (*)</label>
+        <input type="text" id="apellido" name="apellido" maxlength="100" value="{{ form.get('apellido', '') }}" required>
+        {{ error(errors, 'apellido') }}
+    </fieldset>
+
+    <fieldset>
+        <legend>Datos de contacto</legend>
+
+        <label for="email">Correo electrónico (*)</label>
+        <input type="email" id="email" name="email" maxlength="80" value="{{ form.get('email', '') }}" required>
+        {{ error(errors, 'email') }}
+
+        <br>
+
+        <label for="celular">Celular (*)</label>
+        <input type="tel" id="celular" name="celular" maxlength="16" placeholder="+56912345678" value="{{ form.get('celular', '') }}" required>
+        {{ error(errors, 'celular') }}
+    </fieldset>
+
+    <fieldset>
+        <legend>Ubicación</legend>
+
+        <label for="region">Región (*)</label>
+        <select id="region" name="region_id" required>
+            <option value="">-- Seleccione una región --</option>
+            {% for r in regiones %}
+            <option value="{{ r.id }}"{% if form.get('region_id') == r.id|string %} selected{% endif %}>{{ r.nombre|trim }}</option>
+            {% endfor %}
+        </select>
+        {{ error(errors, 'region') }}
+
+        <br>
+
+        <label for="comuna">Comuna (*)</label>
+        <select id="comuna" name="comuna_id" required>
+            <option value="">-- Seleccione una comuna --</option>
+            {% for c in comunas_sel %}
+            <option value="{{ c.id }}"{% if form.get('comuna_id') == c.id|string %} selected{% endif %}>{{ c.nombre }}</option>
+            {% endfor %}
+        </select>
+        {{ error(errors, 'comuna') }}
+    </fieldset>
+
+    <button type="submit">Registrarme</button>
+</form>
+
+<script id="comunas-data" type="application/json">{{ comunas_por_region|tojson }}</script>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/Registro_voluntarios.js') }}"></script>
+{% endblock %}

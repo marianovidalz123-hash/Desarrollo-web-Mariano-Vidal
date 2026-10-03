@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Detalle del Avistamiento{% endblock %}
+{% block contenido %}
+<h2>Detalle del avistamiento</h2>
+
+<dl>
+    <dt>Ave</dt>
+    <dd>{{ av.ave.nombre }}</dd>
+    <dt>Lugar</dt>
+    <dd>{{ av.lugar }}</dd>
+    <dt>Fecha y hora</dt>
+    <dd>{{ av.fecha_hora|fecha }} a las {{ av.fecha_hora|hora }}</dd>
+    <dt>Informado por</dt>
+    <dd>{{ av.voluntario.nombre }} ({{ av.voluntario.comuna.nombre|trim }}, {{ av.voluntario.comuna.region.nombre|trim }})</dd>
+    <dt>Descripción</dt>
+    <dd class="descripcion">{{ av.descripcion or 'Sin descripción.' }}</dd>
+</dl>
+
+<h3>Fotos y videos</h3>
+{% if av.registros %}
+<div class="galeria">
+    {% for r in av.registros %}
+    <figure>
+        {% if r.es_video %}
+        <video controls preload="metadata">
+            <source src="{{ url_for('static', filename=r.ruta_archivo) }}" type="{{ r.mimetype }}">
+            Su navegador no puede reproducir este video.
+        </video>
+        {% else %}
+        <img src="{{ url_for('static', filename=r.ruta_archivo) }}" alt="Foto del avistamiento de {{ av.ave.nombre }}">
+        {% endif %}
+        <figcaption>{{ r.nombre_archivo }}</figcaption>
+    </figure>
+    {% endfor %}
+</div>
+{% else %}
+<p>Este avistamiento no tiene archivos asociados.</p>
+{% endif %}
+
+<p><a href="{{ url_for('listado_avistamientos') }}">Volver al listado</a></p>
+{% endblock %}

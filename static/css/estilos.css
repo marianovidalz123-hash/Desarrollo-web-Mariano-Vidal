@@ -1,0 +1,218 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    color: #222;
+    background-color: #e3e6e9;
+    line-height: 1.5;
+}
+
+header {
+    background-color: #2f5d8c;
+    color: white;
+    padding: 1rem 1.5rem;
+}
+
+header h1,
+header p {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #1f4066;
+}
+
+nav ul li a {
+    display: block;
+    padding: 0.7rem 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #3f78b0;
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 2rem 1.5rem;
+}
+
+a {
+    color: #1f4066;
+}
+
+fieldset {
+    margin-bottom: 1rem;
+    border: 1px solid #b0b5ba;
+    background-color: white;
+}
+
+label {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+    width: 100%;
+    max-width: 480px;
+    padding: 0.4rem;
+    box-sizing: border-box;
+}
+
+button,
+.paginacion a {
+    background-color: #2f5d8c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button:hover,
+.paginacion a:hover {
+    background-color: #1f4066;
+}
+
+.error {
+    display: block;
+    color: #b00020;
+    font-size: 0.9rem;
+}
+
+.mensaje {
+    padding: 0.7rem 1rem;
+    border-radius: 4px;
+}
+
+.mensaje.exito {
+    background-color: #d9e8f7;
+    color: #1b3a5c;
+}
+
+.oculto {
+    display: none;
+}
+
+.menu-portada {
+    padding-left: 1.2rem;
+}
+
+.menu-portada li {
+    margin-bottom: 0.4rem;
+}
+
+.tarjetas {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tarjeta {
+    flex: 1 1 280px;
+    margin: 0 1rem 1rem 0;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border: 1px solid #b0b5ba;
+    border-radius: 4px;
+}
+
+.tarjeta h4,
+.tarjeta p {
+    margin: 0.3rem 0;
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+}
+
+th,
+td {
+    border: 1px solid #b0b5ba;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+th {
+    background-color: #2f5d8c;
+    color: white;
+}
+
+tbody tr[data-href] {
+    cursor: pointer;
+}
+
+tbody tr[data-href]:hover {
+    background-color: #d9dde1;
+}
+
+.paginacion {
+    margin-top: 1rem;
+}
+
+.paginacion span {
+    margin: 0 0.5rem;
+}
+
+.paginacion .deshabilitado {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    background-color: #ccc;
+    color: #666;
+}
+
+dt {
+    font-weight: bold;
+    margin-top: 0.6rem;
+}
+
+dd {
+    margin-left: 0;
+}
+
+.descripcion {
+    white-space: pre-wrap;
+}
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.galeria figure {
+    margin: 0 1rem 1rem 0;
+    max-width: 100%;
+}
+
+.galeria img,
+.galeria video {
+    max-width: 100%;
+    max-height: 360px;
+    height: auto;
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+    }
+}

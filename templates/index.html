@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Inicio - Registro de Avistamientos de Aves{% endblock %}
+{% block contenido %}
+<h2>Bienvenido/a</h2>
+<p>Este es un sistema para que los voluntari@s registren e informen avistamientos de aves en Chile,
+    ayudando a crear un registro que se actualice con frecuencia ante los posibles cambios por fenómenos climáticos.</p>
+
+<section>
+    <h3>¿Qué desea hacer?</h3>
+    <ul class="menu-portada">
+        <li><a href="{{ url_for('registrar_voluntario') }}">Registrar voluntario</a></li>
+        <li><a href="{{ url_for('informar_avistamiento') }}">Informar avistamiento</a></li>
+        <li><a href="{{ url_for('estadisticas') }}">Estadísticas</a></li>
+    </ul>
+</section>
+
+<section>
+    <h3>Últimos avistamientos</h3>
+    {% if ultimos %}
+    <ul class="tarjetas">
+        {% for av in ultimos %}
+        <li class="tarjeta">
+            <h4><a href="{{ url_for('detalle_avistamiento', id=av.id) }}">{{ av.ave.nombre }}</a></h4>
+            <p>Lugar: {{ av.lugar }}</p>
+            <p>Fecha: {{ av.fecha_hora|fecha }} a las {{ av.fecha_hora|hora }}</p>
+            <p>Informado por: {{ av.voluntario.nombre }}</p>
+            <p>Archivos adjuntos: {{ av.registros|length }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <p><a href="{{ url_for('listado_avistamientos') }}">Ver todos los avistamientos</a></p>
+    {% else %}
+    <p>Aún no hay avistamientos registrados.</p>
+    {% endif %}
+</section>
+{% endblock %}

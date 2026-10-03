@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Voluntario registrado{% endblock %}
+{% block contenido %}
+<h2>¡Registro exitoso!</h2>
+<p>Gracias, {{ voluntario.nombre }}. Ya forma parte de los voluntari@s de la Unión de Ornitólogos de Chile.</p>
+<p>¿Qué desea hacer ahora?</p>
+<ul class="menu-portada">
+    <li><a href="{{ url_for('informar_avistamiento', email=voluntario.email) }}">Registrar un avistamiento</a></li>
+    <li><a href="{{ url_for('index') }}">Ir al inicio</a></li>
+</ul>
+{% endblock %}

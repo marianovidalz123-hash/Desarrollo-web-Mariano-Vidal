@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Listado de Avistamientos{% endblock %}
+{% block contenido %}
+<h2>Listado de Avistamientos</h2>
+<p>Avistamientos registrados por la comunidad de voluntarios ({{ total }} en total). Haga clic en una fila para ver el detalle.</p>
+
+{% if filas %}
+<div class="tabla-contenedor">
+<table id="tabla-avistamientos">
+    <thead>
+        <tr>
+            <th scope="col">Ave</th>
+            <th scope="col">Lugar</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Voluntario</th>
+            <th scope="col">Archivos</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for av in filas %}
+        <tr data-href="{{ url_for('detalle_avistamiento', id=av.id) }}">
+            <td><a href="{{ url_for('detalle_avistamiento', id=av.id) }}">{{ av.ave.nombre }}</a></td>
+            <td>{{ av.lugar }}</td>
+            <td>{{ av.fecha_hora|fecha }}</td>
+            <td>{{ av.fecha_hora|hora }}</td>
+            <td>{{ av.voluntario.nombre }}</td>
+            <td>{{ av.registros|length }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<p>Aún no hay avistamientos registrados.</p>
+{% endif %}
+
+<nav aria-label="Paginación de resultados" class="paginacion">
+    {% if pagina > 1 %}
+    <a href="{{ url_for('listado_avistamientos', pagina=pagina - 1) }}">Anterior</a>
+    {% else %}
+    <span class="deshabilitado">Anterior</span>
+    {% endif %}
+    <span>Página {{ pagina }} de {{ total_paginas }}</span>
+    {% if pagina < total_paginas %}
+    <a href="{{ url_for('listado_avistamientos', pagina=pagina + 1) }}">Siguiente</a>
+    {% else %}
+    <span class="deshabilitado">Siguiente</span>
+    {% endif %}
+</nav>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/Listado.js') }}"></script>
+{% endblock %}
